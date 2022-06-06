@@ -12,7 +12,7 @@ app.use(express.json());
 //Setup cors Accessible by other domains
 app.use(cors());
 
-const PORT = 9000;
+const PORT = process.env.PORT || 9000;
 
 const crud = require("./routes/crud");
 
