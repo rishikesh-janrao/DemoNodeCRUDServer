@@ -88,7 +88,7 @@ exports.sendFeedback = (req,res) =>{
     };
     mg.messages().send(data, function (error, body) {
       return res.status(200).json({
-        "msg": "Sent email successfully !"
+        "msg": "Sent email successfully !",
       });
     });
     
