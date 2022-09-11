@@ -2,6 +2,8 @@ const express = require("express");
 const app = express();
 const dotenv = require("dotenv");
 const cors = require("cors");
+const mailgun = require("mailgun-js");
+
 
 dotenv.config({
   path: "./config/config.env"

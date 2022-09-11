@@ -74,3 +74,23 @@ exports.deleteArticle = (req, res) => {
     });
   }
 };
+exports.sendFeedback = (req,res) =>{
+  let feedbackForm = req.body;
+  if(feedbackForm){
+    const DOMAIN = 'sandbox25c51c3bbb5045eaa11127561842227a.mailgun.org';
+    const api_key = 'e884d80211e732447233c4028440caa8-07a637b8-958f6d13';
+    const mg = mailgun({apiKey: api_key, domain: DOMAIN});
+    const data = {
+      from: 'Portfolio App <rishikeshjanrao@outlook.com>',
+      to: 'janraorishikesh@gmail.com, janraor@sandbox25c51c3bbb5045eaa11127561842227a.mailgun.org',
+      subject: feedbackForm.name + " - Feedback",
+      text: feedbackForm.msg+"\n"+feedbackForm.email
+    };
+    mg.messages().send(data, function (error, body) {
+      return res.status(200).json({
+        "msg": "Sent email successfully !"
+      });
+    });
+    
+  }
+}

@@ -9,11 +9,13 @@ const {
   editArticle,
   getArticles,
   deleteArticle,
+  sendFeedback
 } = require("../controller/crudController");
 
 router.route("/addArticle").post(urlencodedparser,addArticle);
 router.route("/editArticle").post(urlencodedparser,editArticle);
 router.route("/getArticles").get(getArticles);
 router.route("/deleteArticle").post(urlencodedparser,deleteArticle);
+router.route("/sendFeedback").post(urlencodedparser,sendFeedback);
 
 module.exports = router;
