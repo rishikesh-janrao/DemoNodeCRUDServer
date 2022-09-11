@@ -84,7 +84,7 @@ exports.sendFeedback = (req,res) =>{
       from: 'Portfolio App <rishikeshjanrao@outlook.com>',
       to: 'janraorishikesh@gmail.com, janraor@sandbox25c51c3bbb5045eaa11127561842227a.mailgun.org',
       subject: feedbackForm.name + " - Feedback",
-      text: feedbackForm.msg+"\n"+feedbackForm.email
+      text: feedbackForm.msg+"\n"+feedbackForm.email+"\n"
     };
     mg.messages().send(data, function (error, body) {
       return res.status(200).json({
